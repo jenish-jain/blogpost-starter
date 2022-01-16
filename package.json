@@ -1,0 +1,47 @@
+{
+  "name": "blogpost-starter",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "author": "jenishjain",
+  "license": "MIT",
+  "scripts": {
+    "postinstall": "./postinstall.js",
+    "prebuild": "postcss --config commonjs-compat src/styles/*.css -d public/styles/",
+    "build": "toast incremental .",
+    "serve": "serve public"
+  },
+  "dependencies": {
+    "@toastdotdev/mdx": "^0.2.3",
+    "cssnano": "^5.0.15",
+    "esinstall": "1.1.4",
+    "path": "^0.12.7",
+    "postcss": "^8.2.9",
+    "postcss-cli": "^8.3.1",
+    "rehype-identity-footnote-containers": "^1.0.0",
+    "remark-numbered-footnotes": "^2.0.0",
+    "toast": "^0.3.43"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.2.5",
+    "pretty-bytes": "5.6.0",
+    "serve": "^13.0.2"
+  },
+  "snowpack": {
+    "exclude": [
+      "bin/**",
+      "public/**",
+      "commonjs-compat/**",
+      "toast.js"
+    ],
+    "installOptions": {
+      "alias": {
+        "react": "preact/compat"
+      },
+      "knownEntryPoints": [
+        "preact",
+        "preact/hooks"
+      ]
+    }
+  }
+}
