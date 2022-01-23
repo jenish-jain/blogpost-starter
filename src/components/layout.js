@@ -11,7 +11,7 @@ export function Layout({ children }) {
     <div class={`outer ${darkMode ? 'dark' : 'light'}`}>
       <Header />
       <Main>{children}</Main>
-      <Footer>powered by boops</Footer>
+      <Footer>powered by free weekends</Footer>
     </div>
   );
 }

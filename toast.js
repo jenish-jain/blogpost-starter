@@ -1,10 +1,6 @@
-import path from 'path';
 import { fetchMdxFromDisk, processMdx } from '@toastdotdev/mdx';
-// import cloudinary from 'rehype-local-image-to-cloudinary';
 import numberedFootnotes from 'remark-numbered-footnotes';
 import identifyFootnoteContainers from 'rehype-identity-footnote-containers';
-// import upload from 'rehype-local-image-to-cloudinary/upload.js';
-// import getImageUrl from 'rehype-local-image-to-cloudinary/build-url.js';
 
 export const sourceData = async ({ setDataForSlug }) => {
   const files = await fetchMdxFromDisk({ directory: './content' });
@@ -15,53 +11,20 @@ export const sourceData = async ({ setDataForSlug }) => {
         filepath: filename,
         remarkPlugins: [numberedFootnotes],
         rehypePlugins: [
-        //   [
-        // //     cloudinary,
-        //     {
-        //       baseDir: path.dirname(filename),
-        //       uploadFolder: 'blogsite',
-        //     },
-        //   ],
           identifyFootnoteContainers,
         ],
       });
-
-      let cloudinaryUrl =
-        'https://res.cloudinary.com/jlengstorf/image/upload/f_auto,q_auto,w_1600,h_900,c_fill/jason.af/og-image.jpg';
-      let thumbnailUrl =
-        'https://res.cloudinary.com/jlengstorf/image/upload/f_auto,q_auto,w_500,h_250,c_fill/jason.af/og-image.jpg';
-
-      // if (data.exports.meta.image) {
-      //   const cloudinaryName = await upload({
-      //     imagePath: path.join(path.dirname(filename), data.exports.meta.image),
-      //     uploadFolder: 'blogsite',
-      //   });
-
-      //   cloudinaryUrl = getImageUrl({
-      //     fileName: cloudinaryName,
-      //     uploadFolder: 'blogsite',
-      //     transformations: 'f_auto,q_auto,w_1600,h_900,c_fill',
-      //   });
-
-      //   thumbnailUrl = getImageUrl({
-      //     fileName: cloudinaryName,
-      //     uploadFolder: 'blogsite',
-      //     transformations: 'f_auto,q_auto,w_500,h_250,c_fill',
-      //   });
-      // }
 
       await setDataForSlug(`/${data.exports.meta.slug}`, {
         component: {
           mode: 'source',
           value: compiledMdx,
         },
-        data: { ...data.exports.meta, image: cloudinaryUrl, type: 'post' },
+        data: { ...data.exports.meta, type: 'post' },
       });
 
       return {
         ...data.exports.meta,
-        image: cloudinaryUrl,
-        thumb: thumbnailUrl,
         type: 'post',
       };
     }),

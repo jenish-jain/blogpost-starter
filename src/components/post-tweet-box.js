@@ -1,9 +1,10 @@
 /** @jsx h */
 import { h } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
+import { configs } from '../configurations/configs.js';
 
 export function PostTweetBox({ quote, retweetId = false }) {
-  const [location, setLocation] = useState('https://www.jason.af');
+  const [location, setLocation] = useState(configs.websiteUrl);
 
   useEffect(() => {
     setLocation(window.location.href);
@@ -17,9 +18,9 @@ export function PostTweetBox({ quote, retweetId = false }) {
   } else {
     url.pathname = '/compose/tweet';
     url.search = new URLSearchParams({
-      text: `“${quote}” —@jlengstorf`,
+      text: `“${quote}” —@${configs.twitterHandel}`,
       url: location,
-      related: 'jlengstorf',
+      related: `${configs.twitterHandel}`,
     });
   }
   return (
