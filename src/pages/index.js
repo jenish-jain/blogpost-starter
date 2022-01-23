@@ -15,11 +15,11 @@ export default function Posts({ posts }) {
     <Layout>
       <Block color="yellow">
         <Intro
-          headline={`These are ${posts.length} things i thought would be helpful for others`}
+          headline={`${posts.length} times I’ve sat down to write something as a blog.`}
           post
         >
           <p>
-            This is my personal thought dump.
+            I like to share my learnings, process of building something with others. I am not a regular writer but you can expect something rolling every few months ;)
           </p>
         </Intro>
       </Block>
