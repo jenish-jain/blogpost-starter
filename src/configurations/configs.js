@@ -1,14 +1,14 @@
 export const configs = {
-  blogName: "Jenish's Blog",
+  blogName: "Blog site",
   websiteUrl: 'https://www.jenishjain.in/',
   twitterHandel: 'jenishjain6',
   cloudinaryConfigs: {
     cloudName: 'jenishjain',
   },
   sitesInfo: {
-    jenishjain: {
-      name: 'jenishjain.in',
-      icon: 'https://www.jason.af/favicon-32x32.png', //TODO: replace with your / default favicon
+    blogsite: {
+      name: 'blogsite',
+      icon: 'https://avatars.dicebear.com/api/big-ears-neutral/post.svg',
     },
     rapidolabs: {
       name: 'rapido-labs',
