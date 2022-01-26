@@ -13,7 +13,7 @@ export default function Posts({ posts }) {
       description="A blog site build with toast, mdx and lots of chai."
     />,
     <Layout>
-      <Block color="yellow">
+      <Block color="black">
         <Intro
           headline={`${posts.length} times I’ve sat down to write something as a blog.`}
           post
@@ -23,7 +23,7 @@ export default function Posts({ posts }) {
           </p>
         </Intro>
       </Block>
-      <Block color="white">
+      <Block color="dirty-white">
         <section id="previews">
           <PostPreviews posts={posts} />
         </section>

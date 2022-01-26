@@ -1002,6 +1002,7 @@ img {
   margin: 0 auto 3rem;
   max-width: 90vw;
   width: 900px;
+  color:var(--dirty-white)
 }
 
 .intro:only-child {
@@ -1012,6 +1013,7 @@ img {
   font-size: 11vw;
   margin: 0;
   text-align: center;
+  color:var(--dirty-white);
 }
 
 .intro-lede {
@@ -1137,6 +1139,11 @@ img {
 .block.dirty-white {
   background: var(--dirty-white);
   border-color: var(--white);
+}
+
+.block.black {
+  background: var(--black);
+  border-color: var(--gray-medium);
 }
 
 /*
